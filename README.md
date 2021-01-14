@@ -14,6 +14,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ## Approach
 利用Microsoft Azure Custom Vision訓練積木辨識模型
 ## Tutorial
-0.setup樹梅派("
-[點擊]()
+0. setup樹梅派("
+[點擊](https://github.com/juliawupei/LEGO_detection/blob/main/raspberrypi_setup.pdf)
 "看詳細步驟)
+1. 
