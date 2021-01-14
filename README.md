@@ -7,12 +7,15 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ## Hardware
 1. Raspberry Pi 3 Model B+
 2. Raspberry Pi Camera Moudule V2
+3. LEGO積木
 ## Software
-1. Python 
+1. Python3
 2. OpenCV
 3. Microsoft Azure Custom Vision
 ## Approach
-利用Microsoft Azure Custom Vision訓練積木辨識模型
+利用Microsoft Azure Custom Vision訓練說明書圖片辨識模型以及積木辨識模型，再透過Python使用模型
+本專案以LEGO #11008 Classic-Bricks and Houses來訓練模型
+共使用
 ## Tutorial
 0. setup樹梅派("
 [點擊](https://github.com/juliawupei/LEGO_detection/blob/main/raspberrypi_setup.pdf)
