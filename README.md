@@ -19,9 +19,12 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ## Tutorial
 ### Training Model with Custom Vision  
 1. 建立一個Azure帳號([點擊前往](https://azure.microsoft.com/zh-tw/#))
+
 2. [點擊前往Cutom Vision網站](https://www.customvision.ai/)，並登入帳號
+
 3. 點選**New Project**新增物件辨識專案
 ![step3](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(104).png)
+
 4. 在Create new project表格中輸入  
   **Name: 專案名稱  
   Description: 相關敘述**
