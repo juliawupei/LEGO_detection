@@ -164,7 +164,7 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 關閉相機  
  `camera.close()`  
    
-執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中
+執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中  
 ![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)  
 
 ---
@@ -173,3 +173,7 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 本專案原定用相同方式訓練辨識說明書圖片模型，並回傳指定積木tag名稱，再進一步框出目標積木，但最後說明書圖片模型辨識成功率過低，所以在實際執行中，只完成實際積木圖闢辨識的部分  
 ![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/capture_detect.png)   
 辨識失敗(說明書上 未被框出辨識結果及其tag)
+  
+---
+### Brief Itroduction of the Project
+[LINK](https://youtu.be/Ualii_myisk)
