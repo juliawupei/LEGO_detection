@@ -7,7 +7,7 @@ camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
 credentials = ApiKeyCredentials(in_headers={"Prediction-key": "<Prediction-key>"})
-predictor = CustomVisionPredictionClient("https://southcentralus.api.cognitive.microsoft.com/", credentials)
+predictor = CustomVisionPredictionClient("<Endpoint-URL>", credentials)
 
 ret, image = camera.read()
 cv2.imwrite('capture_detect.png', image)
