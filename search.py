@@ -6,17 +6,17 @@ camera = cv2.VideoCapture(0)
 camera.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 camera.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-credentials = ApiKeyCredentials(in_headers={"Prediction-key": "4a065daf45d9493481150079bcecedd9"})
+credentials = ApiKeyCredentials(in_headers={"Prediction-key": "<Prediction-key>"})
 predictor = CustomVisionPredictionClient("https://southcentralus.api.cognitive.microsoft.com/", credentials)
 
 ret, image = camera.read()
 cv2.imwrite('capture.png', image)
 
 with open("capture.png", mode="rb") as captured_image:
-    results = predictor.detect_image("1b347900-c97b-4769-88bf-266ebfa913b7", "Iteration7", captured_image)
+    results = predictor.detect_image("<Project-id>", "<Name-of-iteration", captured_image)
 
 for prediction in results.predictions:
-    if prediction.probability > 0.5 and prediction.tag_name == "2_8":
+    if prediction.probability > 0.5 :
 
         bbox = prediction.bounding_box
 
