@@ -71,7 +71,9 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 
 14. 完成模型訓練後，點選**publish**輸出模型
 ![step14_1](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(121).png)
-![step14_2](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(122).png)
+![step14_2](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(122).png)  
+
+---
 ### Run Model on Raspberry Pi   
 **setup Raspberry Pi**  
 包含安裝作業系統、設置VNC遠端連線等，"
@@ -79,18 +81,20 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 "看詳細步驟  
   
   
+---
 開啟終端機輸入指令**更新Raspbian**  
 `
 sudo apt-get update
 sudo apt-get upgrade
 `  
   
-  
+---
 **安裝Python3**  
 `
 sudo apt install python3
 `    
-
+  
+---
 **測試picamera**  
 在未接電源的情況下，插入排線  
 注意金屬排線面向SD卡的方向插入  
@@ -102,17 +106,21 @@ raspistill -o image.png
 `  
 拍設完image.png會存在raspberrypi裡  
   
+---
 **安裝opencv**  
 [參考本連結](https://qengineering.eu/install-opencv-4.4-on-raspberry-pi-4.html)
 ，安裝opencv
-
+  
+---
 **安裝customvision、msrest**  
 `
 pip install azure-cognitiveservices-vision-customvision  
 pip install msrest
 `  
   
-建立新的Python檔案並import所需packages  
+---
+**建立新的Python檔案**  
+import所需packages  
 `import cv2`    
 `from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient`  
 `from msrest.authentication import ApiKeyCredentials`  
@@ -125,19 +133,19 @@ camera = PiCamera()
 camera.resolution = (640,480)
 `  
   
-  使用custom vision API執行訓練好的模型  
+使用custom vision API執行訓練好的模型  
 `
 redentials = ApiKeyCredentials(in_headers={"Prediction-key": "<PREDICTION_KEY>"})   
 predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 `  
   
-  點選Custom Vision介面中的"**Prediction URL**"可以看到你的<PREDICTION_KEY>  
+點選Custom Vision介面中的"**Prediction URL**"可以看到你的<PREDICTION_KEY>  
 點選介面中的"**settings**"可以看到你的<ENDPOINT_URL>  
     
-  拍攝照片並存到指定路徑  
-  `camera.capture('/home/pi/flask/capture_search.png')`  
-  `image = cv2.imread('capture_search.png')`  
-  `cv2.imwrite('capture_search.png', image)`  
+拍攝照片並存到指定路徑  
+`camera.capture('/home/pi/flask/capture_search.png')`  
+`image = cv2.imread('capture_search.png')`  
+`cv2.imwrite('capture_search.png', image)`  
 
 `with open("capture_search.png", mode="rb") as captured_image:`  
 `results = predictor.detect_image("<PROJECT_ID>", "<ITERATION_NAME>", captured_image)`  
@@ -151,7 +159,8 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
  `result_image = cv2.rectangle(image, (int(bbox.left * 640), int(bbox.top * 480)), (int((bbox.left + bbox.width) * 640), int((bbox.top + bbox.height) * 480)), (0, 255, 0), 1)`   
  `cv2.imwrite('result_search.png', result_image)`  
    
- 關閉相機  
+關閉相機  
  `camera.close()`  
    
- 執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中
+執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中
+![search_result]()
