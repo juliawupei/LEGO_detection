@@ -74,7 +74,8 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ![step14_2](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(122).png)  
 
 ---
-### Run Model on Raspberry Pi   
+### Run Model on Raspberry Pi  
+(部分程式碼參考[來源](https://dev.to/stratiteq/puffins-detection-with-azure-custom-vision-and-python-2ca5))  
 **setup Raspberry Pi**  
 包含安裝作業系統、設置VNC遠端連線等，"
 [點擊](https://github.com/juliawupei/LEGO_detection/blob/main/raspberrypi_setup.pdf)
@@ -163,4 +164,4 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
  `camera.close()`  
    
 執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中
-![search_result]()
+![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)
