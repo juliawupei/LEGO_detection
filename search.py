@@ -7,15 +7,15 @@ from time import sleep
 camera = PiCamera()
 camera.resolution = (640,480)
 
-credentials = ApiKeyCredentials(in_headers={"Prediction-key": "4a065daf45d9493481150079bcecedd9"})
-predictor = CustomVisionPredictionClient("https://southcentralus.api.cognitive.microsoft.com/", credentials)
+credentials = ApiKeyCredentials(in_headers={"Prediction-key": "<Prediction-key>"})
+predictor = CustomVisionPredictionClient("<Endpoint-URL>", credentials)
 
 camera.capture('/home/pi/flask/capture_search.png')
 image = cv2.imread('capture_search.png')
 cv2.imwrite('capture_search.png', image)
 
 with open("capture_search.png", mode="rb") as captured_image:
-    results = predictor.detect_image("1b347900-c97b-4769-88bf-266ebfa913b7", "Iteration7", captured_image)
+    results = predictor.detect_image("<Project-id>", "<Name-of-iteration", captured_image)
 
 for prediction in results.predictions:
     if prediction.probability > 0.4 :
