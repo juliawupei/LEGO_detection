@@ -172,8 +172,8 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 ### Encountered Problem
 本專案原定用相同方式訓練辨識說明書圖片模型，並回傳指定積木tag名稱，再進一步框出目標積木，但最後說明書圖片模型辨識成功率過低，所以在實際執行中，只完成實際積木圖闢辨識的部分  
 ![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/capture_detect.png)   
-辨識失敗(說明書上 未被框出辨識結果及其tag)
+辨識失敗(說明書上未被框出辨識結果及其tag)
   
 ---
 ### Brief Itroduction of the Project
-[LINK](https://youtu.be/Ualii_myisk)
+[link of the youtube video](https://youtu.be/Ualii_myisk)
