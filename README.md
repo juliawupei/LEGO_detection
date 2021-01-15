@@ -15,7 +15,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ## Approach
 利用Microsoft Azure Custom Vision訓練說明書圖片辨識模型以及積木辨識模型，再透過Python使用模型  
 本專案以LEGO #11008 Classic-Bricks and Houses來訓練模型
-共使用___張照片訓練模型
+共使用251張照片訓練積木辨識模型、107張照片訓練說明書圖片辨識模型
 ## Tutorial
 ### Training Model with Custom Vision  
 1. 建立一個Azure帳號([點擊前往](https://azure.microsoft.com/zh-tw/#))
@@ -164,4 +164,8 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
  `camera.close()`  
    
 執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中
-![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)
+![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)  
+
+---
+##Encountered Problem
+
