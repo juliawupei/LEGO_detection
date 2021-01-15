@@ -145,21 +145,27 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 點選介面中的"**settings**"可以看到你的<ENDPOINT_URL>  
     
 拍攝照片並存到指定路徑  
-`camera.capture('/home/pi/flask/capture_search.png')`  
-`image = cv2.imread('capture_search.png')`  
-`cv2.imwrite('capture_search.png', image)`  
+`
+camera.capture('/home/pi/flask/capture_search.png')  
+image = cv2.imread('capture_search.png')  
+cv2.imwrite('capture_search.png', image)
+`  
 
-`with open("capture_search.png", mode="rb") as captured_image:`  
-`results = predictor.detect_image("<PROJECT_ID>", "<ITERATION_NAME>", captured_image)`  
+`
+with open("capture_search.png", mode="rb") as captured_image:  
+  results = predictor.detect_image("<PROJECT_ID>", "<ITERATION_NAME>", captured_image)
+`  
 點選介面中的"**settings**"可以看到你的<PROJECT_ID>  
   
 針對偵測結果篩選，若信心程度大於0.4，則對樂高加上方框並標記tag名稱，將最終圖檔存入"result_search.png"  
- `for prediction in results.predictions:`  
- `if prediction.probability > 0.4 :`  
- ` bbox = prediction.bounding_box`  
- `cv2.putText(image, prediction.tag_name, (int(bbox.left * 640), int(bbox.top * 480)-4), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)`  
- `result_image = cv2.rectangle(image, (int(bbox.left * 640), int(bbox.top * 480)), (int((bbox.left + bbox.width) * 640), int((bbox.top + bbox.height) * 480)), (0, 255, 0), 1)`   
- `cv2.imwrite('result_search.png', result_image)`  
+`
+for prediction in results.predictions:  
+ if prediction.probability > 0.4 :  
+ bbox = prediction.bounding_box  
+ cv2.putText(image, prediction.tag_name, (int(bbox.left * 640), int(bbox.top * 480)-4), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)  
+ result_image = cv2.rectangle(image, (int(bbox.left * 640), int(bbox.top * 480)), (int((bbox.left + bbox.width) * 640), int((bbox.top + bbox.height) * 480)), (0, 255, 0), 1)  
+ cv2.imwrite('result_search.png', result_image)  
+ `
    
 關閉相機  
  `camera.close()`  
