@@ -121,7 +121,7 @@ pip install msrest
 `  
   
 ---
-**建立新的Python檔案**  
+**建立新的Python檔案search.py**  
 import所需packages  
 `import cv2`    
 `from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient`  
