@@ -86,14 +86,14 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ---
 開啟終端機輸入指令**更新Raspbian**  
 `
-sudo apt-get update
-sudo apt-get upgrade
+$ sudo apt-get update
+$ sudo apt-get upgrade
 `  
   
 ---
 **安裝Python3**  
 `
-sudo apt install python3
+$ sudo apt install python3
 `    
   
 ---
@@ -104,10 +104,10 @@ sudo apt install python3
 打開raspberry pi configuration，在"**camera**"選擇"**enable**"
 在終端機輸入指令測試相機  
 `
-raspistill -o image.png
+$ raspistill -o image.png
 `  
-拍設完image.png會存在raspberrypi裡  
-  
+拍攝完image.png會存在raspberrypi裡 
+
 ---
 **安裝opencv**  
 [參考本連結](https://qengineering.eu/install-opencv-4.4-on-raspberry-pi-4.html)
@@ -116,8 +116,8 @@ raspistill -o image.png
 ---
 **安裝customvision、msrest**  
 `
-pip install azure-cognitiveservices-vision-customvision  
-pip install msrest
+$ pip install azure-cognitiveservices-vision-customvision  
+$ pip install msrest
 `  
   
 ---
@@ -164,7 +164,9 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 關閉相機  
  `camera.close()`  
    
-執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中  
+在終端機輸入指令  
+`$ Python3 search.py`
+執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi的指定路徑中(/home/pi/flask/result_search.png)  
 ![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)  
 
 ---
