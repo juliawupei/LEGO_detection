@@ -5,12 +5,12 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 樂高套組內的積木通常會被分裝成數個包裝，越是進階的玩家會面對越複雜多樣的積木，而從茫茫積木海中找出說名書上的某塊積木總是消磨了很多玩家的熱情與耐心，實在是一個十分費心的環節。  
 為解決這個問題，本專案透過影像辨識分類說明書上的樂高積木以及桌面上散落的實體積木，標示出所需的某塊積木位置，大幅增加尋找積木的效率，同時不減樂高帶來的遊戲體驗。  
 ## Hardware
-1. Raspberry Pi 3 Model B+
+1. Raspberry Pi 3 Model B
 2. Raspberry Pi Camera Moudule V2
 3. LEGO積木
 ## Software
 1. Python3
-2. OpenCV
+2. OpenCV 4.4
 3. Microsoft Azure Custom Vision
 ## Approach
 利用Microsoft Azure Custom Vision訓練說明書圖片辨識模型以及積木辨識模型，再透過Python使用模型  
@@ -76,6 +76,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 ---
 ### Run Model on Raspberry Pi  
 (部分程式碼參考[來源](https://dev.to/stratiteq/puffins-detection-with-azure-custom-vision-and-python-2ca5))  
+  
 **setup Raspberry Pi**  
 包含安裝作業系統、設置VNC遠端連線等，"
 [點擊](https://github.com/juliawupei/LEGO_detection/blob/main/raspberrypi_setup.pdf)
@@ -167,5 +168,8 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 ![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)  
 
 ---
-##Encountered Problem
 
+### Encountered Problem
+本專案原定用相同方式訓練辨識說明書圖片模型，並回傳指定積木tag名稱，再進一步框出目標積木，但最後說明書圖片模型辨識成功率過低，所以在實際執行中，只完成實際積木圖闢辨識的部分  
+![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/capture_detect.png)   
+辨識失敗(說明書上 未被框出辨識結果及其tag)
