@@ -113,11 +113,11 @@ pip install msrest
 `  
   
 建立新的Python檔案並import所需packages  
-`
-import cv2  
-from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient  
-from msrest.authentication import ApiKeyCredentials  
-from picamera import PiCamera  
-from time import sleep  
-`
+`import cv2`    
+`from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient`  
+`from msrest.authentication import ApiKeyCredentials`  
+`from picamera import PiCamera`  
+`from time import sleep`  
 
+  
+  
