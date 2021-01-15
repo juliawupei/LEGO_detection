@@ -5,12 +5,12 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 樂高套組內的積木通常會被分裝成數個包裝，越是進階的玩家會面對越複雜多樣的積木，而從茫茫積木海中找出說名書上的某塊積木總是消磨了很多玩家的熱情與耐心，實在是一個十分費心的環節。  
 為解決這個問題，本專案透過影像辨識分類說明書上的樂高積木以及桌面上散落的實體積木，標示出所需的某塊積木位置，大幅增加尋找積木的效率，同時不減樂高帶來的遊戲體驗。  
 ## Hardware
-1. Raspberry Pi 3 Model B+
+1. Raspberry Pi 3 Model B
 2. Raspberry Pi Camera Moudule V2
 3. LEGO積木
 ## Software
 1. Python3
-2. OpenCV
+2. OpenCV 4.4
 3. Microsoft Azure Custom Vision
 ## Approach
 利用Microsoft Azure Custom Vision訓練說明書圖片辨識模型以及積木辨識模型，再透過Python使用模型  
@@ -22,7 +22,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 
 2. [點擊前往Cutom Vision網站](https://www.customvision.ai/)，並登入帳號
 
-3. 點選**New Project**新增物件辨識專案
+3. 點選"**New Project**"新增物件辨識專案
 ![step3](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(104).png)
 
 4. 在Create new project表格中輸入  
@@ -30,7 +30,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
   Description: 相關敘述**
 ![step4](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(105).png)
 
-5. 在Resource的地方點選**create new**，依照以下內容建立資源
+5. 在Resource的地方點選"**create new**"，依照以下內容建立資源
 ![step5](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(106).png)
 
 6. 新增專案  
@@ -39,7 +39,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
   Export Capabilities: Basic platforms (Tensorflow, CoreML, ONNX, ...)**  
 ![step6](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(107).png)
 
-7. 進入專案頁面點選**Add images**上傳訓練用圖片。若要有效地定型模型，可使用有不同視覺效果的影像(攝影角度、光源、背景...) 
+7. 進入專案頁面點選"**Add images**"上傳訓練用圖片。若要有效地定型模型，可使用有不同視覺效果的影像(攝影角度、光源、背景...) 
 ![step7_1](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(108).png)
 ![step7_2](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(109).png)
 ![step7_3](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(110).png)
@@ -48,7 +48,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
   (標記名稱一定要使用**英文**，且每一個類別至少都要有**15張照片作為Dataset**，若資料量太少則無法訓練，除此之外，每個類別的資料量要盡量一樣多，以避免機率抽樣產生的誤差。) 
 ![step8](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(111).png)
 
-9. 標記好所有圖片之後，可點下右上角的綠色按鈕**Train**，AI就會開始訓練模型  
+9. 標記好所有圖片之後，可點下右上角的綠色按鈕"**Train**"，AI就會開始訓練模型  
   **Training Types: Fast Training**
 ![step9_1](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(113).png)
 ![step9_2](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(114).png)
@@ -61,7 +61,7 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
   *例如，如果實際上有 100 張影像為蘋果，而模型識別 80 張為蘋果，則回收為 80%。* 
 ![step10](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(116).png)
 
-11. 可以點選**Quick Test**測試訊連完的模型，選擇上傳圖片或是輸入圖片連結
+11. 可以點選"**Quick Test**"測試訊連完的模型，選擇上傳圖片或是輸入圖片連結
 ![step10](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(117).png)
 
 12. 完成後會標示出辨識結果及相對應信心程度
@@ -69,13 +69,14 @@ LEGO是聞名全世界的玩具公司，主要生產各式各樣的積木，所�
 
 13. 測試完後依然可以繼續新增圖片，繼續訓練模型
 
-14. 完成模型訓練後，點選**publish**輸出模型
+14. 完成模型訓練後，點選"**publish**"輸出模型
 ![step14_1](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(121).png)
 ![step14_2](https://github.com/juliawupei/LEGO_detection/blob/main/prtsc/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%20(122).png)  
 
 ---
 ### Run Model on Raspberry Pi  
 (部分程式碼參考[來源](https://dev.to/stratiteq/puffins-detection-with-azure-custom-vision-and-python-2ca5))  
+  
 **setup Raspberry Pi**  
 包含安裝作業系統、設置VNC遠端連線等，"
 [點擊](https://github.com/juliawupei/LEGO_detection/blob/main/raspberrypi_setup.pdf)
@@ -163,9 +164,16 @@ predictor = CustomVisionPredictionClient("<ENDPOINT_URL>", credentials)
 關閉相機  
  `camera.close()`  
    
-執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中
+執行以上程式碼後，像機會拍攝一張照片，透過Azure Custom Vision中，訓練好的模型辨識，最後存取一張辨識結果於Raspberry pi中  
 ![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/result_search.png)  
 
 ---
-##Encountered Problem
 
+### Encountered Problem
+本專案原定用相同方式訓練辨識說明書圖片模型，並回傳指定積木tag名稱，再進一步框出目標積木，但最後說明書圖片模型辨識成功率過低，所以在實際執行中，只完成實際積木圖闢辨識的部分  
+![search_result](https://github.com/juliawupei/LEGO_detection/blob/main/result/capture_detect.png)   
+辨識失敗(說明書上未被框出辨識結果及其tag)
+  
+---
+### Brief Itroduction of the Project
+[link of the youtube video](https://youtu.be/Ualii_myisk)
